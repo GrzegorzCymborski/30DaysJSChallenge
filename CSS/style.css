@@ -67,3 +67,7 @@ body {
   font-size: 30px;
   background-color: rgb(164, 219, 150);
 }
+
+a {
+  text-decoration: none;
+}
