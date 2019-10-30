@@ -5,17 +5,6 @@
   <title>JS + CSS Clock</title>
 </head>
 <body>
-
-
-    <div class="clock">
-      <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
-        <div class="hand second-hand"></div>
-      </div>
-    </div>
-
-
   <style>
     html {
       background: #018DED;
@@ -72,11 +61,32 @@
 
   <script>
 
-    const hourHand = document.querySelector('.hour-hand');
-    const minHand = document.querySelector('.min-hand');
-    const secondHand = document.querySelector('.second-hand');
+const clock = document.createElement('div');
+const clockFace = document.createElement('div');
+const hourHand = document.createElement('div');
+const minHand = document.createElement('div');
+const secHand = document.createElement('div');
 
-function setDate() {
+clock.classList.add('clock');
+clockFace.classList.add('clock-face');
+hourHand.classList.add('hand','hour-hand');
+minHand.classList.add('hand','min-hand');
+secHand.classList.add('hand','second-hand');
+
+document.body.appendChild(clock);
+
+clock.appendChild(clockFace);
+clockFace.appendChild(hourHand);
+clockFace.appendChild(minHand);
+clockFace.appendChild(secHand);
+
+
+(function setDate() {
+
+const hourHand = document.querySelector('.hour-hand');
+const minHand = document.querySelector('.min-hand');
+const secondHand = document.querySelector('.second-hand');
+
 const now = new Date();
 
 const hours = now.getHours();
@@ -90,12 +100,9 @@ const secondsDegrees = ((seconds / 60) * 360) + 90;
 hourHand.style.transform = `rotate(${hourDegrees}deg)`;
 minHand.style.transform = `rotate(${minutesDegrees}deg)`;
 secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-};
-
 setInterval(setDate,1000);
+})();
 
-
-
-  </script>
+</script>
 </body>
 </html>
