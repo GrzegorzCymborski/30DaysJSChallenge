@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪💪</title>
+</head>
+
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <script>
+    // ## Array Cardio Day 2
+
+    const people = [{
+        name: 'Wes',
+        year: 1988
+      },
+      {
+        name: 'Kait',
+        year: 1986
+      },
+      {
+        name: 'Irv',
+        year: 1970
+      },
+      {
+        name: 'Lux',
+        year: 2015
+      }
+    ];
+
+    const comments = [{
+        text: 'Love this!',
+        id: 523423
+      },
+      {
+        text: 'Super good',
+        id: 823423
+      },
+      {
+        text: 'You are the best',
+        id: 2039842
+      },
+      {
+        text: 'Ramen is my fav food ever',
+        id: 123523
+      },
+      {
+        text: 'Nice Nice Nice!',
+        id: 542328
+      }
+    ];
+
+    // --------------------------------------------------------------------> TASK 1 [✔️]
+    const is19 = people.some(person => {
+      const yearNow = (new Date()).getFullYear();
+      return yearNow - person.year >= 19;
+    });
+    console.log(`%cWelcome to Array Cardio 2`, `color:pink;font-size:30px`)
+    console.log(`%cTask Nr1:`, `color:yellow;font-size:20px`);
+    console.log(`%cArray.prototype.some()`, `color:green;font-size:15px`);
+    console.log(`%cIs at least one person 19 or older?`, `color:green;font-size:15px`);
+    console.table(people);
+    console.log(`%c${is19}`, `color:cadetblue;font-size:30px`);
+    console.log(`%c--------------------------------------------------`, `color:red`);
+    console.log(`const is19 = people.some(person => {
+      const yearNow = (new Date()).getFullYear();
+      return yearNow - person.year >= 19;
+    });`);
+    console.log(`%c--------------------------------------------------`, `color:red`);
+
+
+
+    // --------------------------------------------------------------------> TASK 2 [✔️]
+    const isEveryone19 = people.every(person => {
+      const yearNow = (new Date()).getFullYear();
+      return yearNow - person.year >= 19;
+    });
+
+    console.log(`%cTask Nr2:`, `color:yellow;font-size:20px`);
+    console.log(`%cArray.prototype.every()`, `color:green;font-size:15px`);
+    console.log(`%cIs everyone 19 or older?`, `color:green;font-size:15px`);
+    console.table(people);
+    console.log(`%c${isEveryone19}`, `color:cadetblue;font-size:30px`);
+    console.log(`%c--------------------------------------------------`, `color:red`);
+    console.log(`   const isEveryone19 = people.every(person => {
+      const yearNow = (new Date()).getFullYear();
+      return yearNow - person.year >= 19;
+    });`);
+    console.log(`%c--------------------------------------------------`, `color:red`);
+
+
+
+    // --------------------------------------------------------------------> TASK 3 [✔️]
+    const comment = comments.find(comment => comment.id === 823423);
+
+    console.log(`%cTask Nr3:`, `color:yellow;font-size:20px`);
+    console.log(`%cArray.prototype.find()`, `color:green;font-size:15px`);
+    console.log(`%cFind is like filter, but instead returns just the one you are looking for`,
+      `color:green;font-size:15px`);
+    console.log(`%cfind the comment with the ID of 823423`, `color:green;font-size:15px`);
+    console.table(comment);
+    console.log(`%c--------------------------------------------------`, `color:red`);
+    console.log(`const comment = comments.find(comment => comment.id === 823423);
+    console.log(comment`);
+    console.log(`%c--------------------------------------------------`, `color:red`);
+
+    // --------------------------------------------------------------------> TASK 4 [✔️]
+    console.log(`%cTask Nr4:`, `color:yellow;font-size:20px`);
+    console.log(`%cArray.prototype.findIndex()`, `color:green;font-size:15px`);
+    console.log(`%cFind the comment with this ID`, `color:green;font-size:15px`);
+    console.log(`%cdelete the comment with the ID of 2039842`, `color:green;font-size:15px`);
+
+    const findIndex = comments.findIndex(index => index.id === 2039842);
+    console.table(comments);
+    console.log(findIndex);
+    comments.splice(findIndex, 1)
+    console.table(comments);
+
+    console.log(`%c--------------------------------------------------`, `color:red`);
+    console.log(`const findIndex = comments.findIndex(index => index.id === 2039842);
+    console.table(comments);
+    console.log(findIndex);
+    comments.splice(findIndex,1)
+    console.table(comments);`);
+    console.log(`%c--------------------------------------------------`, `color:red`);
+  </script>
+</body>
+
+</html>
