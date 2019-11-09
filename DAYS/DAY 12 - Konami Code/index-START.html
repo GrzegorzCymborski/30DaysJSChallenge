@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+</head>
+
+<body>
+  <p>iddqd</p>
+  <script>
+    const pressed = [];
+    const secretCode = 'iddqd';
+
+    window.addEventListener('keyup', (e) => {
+      pressed.push(e.key);
+      pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length)
+      if (pressed.join("") == secretCode) {
+        document.querySelector("body").style.backgroundColor = "red";
+        console.clear();
+        console.log(`%c GOD MODE ACTIVATED!`,`font-size:45px; color:red`);
+        
+      }
+    })
+    console.log(`%c------- J S -- C O D E --------------------------------------`, `color:yellow`);
+    console.log(`    const pressed = [];
+    const secretCode = 'iddqd';
+
+    window.addEventListener('keyup', (e) => {
+      pressed.push(e.key);
+      pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length)
+      if (pressed.join("") == secretCode) {
+        document.querySelector("body").style.backgroundColor = "red"
+      }
+    })`);
+  </script>
+</body>
+
+</html>
