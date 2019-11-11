@@ -24,22 +24,23 @@ function skip() {
     video.currentTime += parseFloat(this.dataset.skip)
 }
 
-function scrub(e){
-const scrub = (e.offsetX / progress.offsetWidth) * video.duration;
-video.currentTime = scrub;    
+function scrub(e) {
+    const scrub = (e.offsetX / progress.offsetWidth) * video.duration;
+    video.currentTime = scrub;
 }
 
 function handleRangeUpdate() {
-   video[this.name] = this.value
+    video[this.name] = this.value
 }
 
-function handleProgress(){
-const percent = (video.currentTime / video.duration) * 100;
-progressBar.style.flexBasis = `${percent}%`;
+function handleProgress() {
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.style.flexBasis = `${percent}%`;
 }
 
-function toggleFullscreen(){
-    video.requestFullscreen()   
+function toggleFullscreen() {
+    player.requestFullscreen();
+    document.fullscreenEnabled ? document.exitFullscreen() : null
 }
 
 skipButtons.forEach(button => button.addEventListener('click', skip))
@@ -50,13 +51,19 @@ video.addEventListener('play', updateButton)
 video.addEventListener('pause', updateButton)
 video.addEventListener('timeupdate', handleProgress)
 toggle.addEventListener('click', togglePlay)
-fullScreenBtn.addEventListener('click',toggleFullscreen)
+fullScreenBtn.addEventListener('click', toggleFullscreen)
 
 let mousedown = false;
-progress.addEventListener('click',scrub)
-progress.addEventListener('mousemove',(e)=> mousedown && scrub(e))
-progress.addEventListener('mousedown',(e)=> mousedown = true)
-progress.addEventListener('mouseup',(e)=> mousedown = false)
+progress.addEventListener('click', scrub)
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e))
+progress.addEventListener('mousedown', (e) => mousedown = true)
+progress.addEventListener('mouseup', (e) => mousedown = false)
+
+document.onkeydown = (e) => {
+    if (e.keyCode == 32) {
+        togglePlay();
+    }
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////
 console.log(`%c------- J S -- C O D E --------------------------------------`, `color:yellow`);
